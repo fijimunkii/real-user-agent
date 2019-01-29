@@ -1,0 +1,31 @@
+{
+  "name": "real-user-agent",
+  "version": "1.0.1",
+  "description": "get a real user-agent string sourced from top 10 current",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/tap test --jobs=10 --coverage-report=html --no-browser"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fijimunkii/real-user-agent.git"
+  },
+  "keywords": [
+    "user-agent",
+    "useragent",
+    "ua",
+    "u-a",
+    "user",
+    "agent",
+    "string"
+  ],
+  "author": "fijimunkii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fijimunkii/real-user-agent/issues"
+  },
+  "homepage": "https://github.com/fijimunkii/real-user-agent#readme",
+  "devDependencies": {
+    "tap": "^12.4.0"
+  }
+}
