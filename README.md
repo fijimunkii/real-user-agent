@@ -12,14 +12,17 @@ const userAgent = require('real-user-agent');
 const ua = await userAgent();
 
 // array of top 10 most common user-agent strings
-const topTen = await userAgent().all();
-
-// 5th most common user-agent
-const notSoCommon = (await userAgent().all())[4];
+const topTen = await userAgent.all();
 
 // round robin top 10 most common user-agents
-const randomUA = await userAgent().cycle();
-const anotherUA = await userAgent().cycle();
+const randomUA = await userAgent.cycle();
+const anotherUA = await userAgent.cycle();
+
+// 5th most common user-agent
+const fifth = await userAgent.cycle(4);
+
+// random user-agent
+const randomUA = await userAgent.cycle(Math.random());
 ```
 
 ```js

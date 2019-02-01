@@ -71,11 +71,17 @@ async function all() {
   return data;
 }
 
-async function cycle() {
-  const data = await all();
-  i++;
-  if (i > count-1) {
-    i = 0;
+async function cycle(index) {
+  if (index === undefined) {
+    i++;
+    if (i > count-1) {
+      i = 0;
+    }
+    index = i;
+  } else if (index < 1) {
+    index = index * 100;
   }
-  return data[i];
+  index = Math.floor(index) % 10;
+  const data = await all();
+  return data[index];
 }

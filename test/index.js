@@ -9,10 +9,32 @@ module.exports = t => {
     const ua = await userAgent.cycle();
     t.type(ua, 'string');
   });
+  t.test('cycle - cycles through strings', async (t) => {
+    const ua1 = await userAgent.cycle();
+    const ua2 = await userAgent.cycle();
+    t.notEqual(ua1, ua2);
+  });
+  t.test('cycle - can be provided an index', async (t) => {
+    const ua1 = await userAgent.cycle(0);
+    const ua2 = await userAgent.cycle(0);
+    t.equal(ua1, ua2);
+    const ua3 = await userAgent.cycle(1);
+    t.notEqual(ua2, ua3);
+  });
+  t.test('cycle - can be provided a random uid', async (t) => {
+    const uid = Math.random();
+    const ua1 = await userAgent.cycle(uid);
+    const ua2 = await userAgent.cycle(uid);
+    t.equal(ua1, ua2);
+    const uid2 = Math.random();
+    const ua3 = await userAgent.cycle(uid2);
+    t.notEqual(ua2, ua3);
+  });
   t.test('all - returns an array', async (t) => {
     const all = await userAgent.all();
     t.type(all, Array);
   });
+
 };
 
 if (!module.parent) module.exports(require('tap'));
