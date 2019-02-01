@@ -11,12 +11,26 @@ const userAgent = require('real-user-agent');
 // most common user-agent string
 const ua = await userAgent();
 
+// array of top 10 most common user-agent strings
+const topTen = await userAgent().all();
+
+// 5th most common user-agent
+const notSoCommon = (await userAgent().all())[4];
+
 // round robin top 10 most common user-agents
 const randomUA = await userAgent().cycle();
 const anotherUA = await userAgent().cycle();
+```
 
-// array of top 10 most common user-agent strings
-const topTen = await userAgent().all();
+```js
+const request = require('request');
+const userAgent = require('real-user-agent');
+request({
+  url: 'https://api.github.com/repos/fijimunkii/real-user-agent',
+  headers: {
+    'user-agent': await userAgent()
+  }
+});
 ```
 
 ## Authors
