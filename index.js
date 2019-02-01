@@ -81,7 +81,7 @@ async function cycle(index) {
   } else if (index < 1) {
     index = index * 100;
   }
-  index = Math.floor(index) % 10;
+  index = Math.floor(index) % count;
   const data = await all();
   return data[index];
 }
