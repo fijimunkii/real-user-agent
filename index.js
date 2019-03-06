@@ -7,7 +7,7 @@ let cache; // simple cache
 let lastUpdated; // cache invalidation
 const timeToUpdate = 1000 * 60 * 60 * 2; // 2 hours
 const count = 10; // how many user agents (10)
-const fallbackString = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36';
+const fallbackString = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36';
 const https = require('https');
 
 async function get() {
