@@ -1,6 +1,6 @@
 {
   "name": "real-user-agent",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "get a real user-agent string sourced from top 10 current",
   "main": "index.js",
   "scripts": {
