@@ -21,12 +21,12 @@ module.exports = t => {
     const ua3 = await userAgent.cycle(1);
     t.notEqual(ua2, ua3);
   });
-  t.test('cycle - can be provided a random uid', async (t) => {
-    const uid = Math.random();
+  t.test('cycle - can be provided a uid', async (t) => {
+    const uid = 1;
+    const uid2 = 2;
     const ua1 = await userAgent.cycle(uid);
     const ua2 = await userAgent.cycle(uid);
     t.equal(ua1, ua2);
-    const uid2 = Math.random();
     const ua3 = await userAgent.cycle(uid2);
     t.notEqual(ua2, ua3);
   });
