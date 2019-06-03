@@ -4,7 +4,8 @@
   "description": "get a real user-agent string sourced from top 10 current",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/.bin/tap test --jobs=10 --coverage-report=html --no-browser"
+    "test": "node ./node_modules/.bin/tap test --jobs=10 --coverage-report=html --no-browser",
+    "sync": "node sync.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/fijimunkii/real-user-agent#readme",
   "devDependencies": {
+    "cloudscraper": "^4.1.2",
     "tap": "^12.4.0"
   }
 }
