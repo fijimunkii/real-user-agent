@@ -13,9 +13,9 @@ const https = require('https');
 async function get() {
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: 'techblog.willshouse.com',
+      hostname: 'gist.githubusercontent.com',
       port: 443,
-      path: '/2012/01/03/most-common-user-agents/',
+      path: '/fijimunkii/952acac988f2d25bef7e0284bc63c406/raw/ua.json',
       method: 'GET'
     };
     const req = https.request(options, async (res) => {
@@ -31,12 +31,9 @@ async function get() {
             throw 'data cap reached';
           buffer.push(chunk);
         }
-        // extract JSON
-        data = buffer.join('')
-          .replace(/^[\S\s]*JSON.*\[/, '[')
-          .replace(/\][\S\s]*$/, ']');
         // extract data
-        data = JSON.parse(data).map(d => d.useragent);
+        data = buffer.join('');
+        data = JSON.parse(data);
         // data integrity
         data = data.filter(d => d.substr(0, 13) === 'Mozilla/5.0 (');
         data = data.slice(0,count);
