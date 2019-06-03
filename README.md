@@ -3,7 +3,7 @@ Will the real user agent please stand up?
 
 [![License: ISC](https://img.shields.io/npm/l/real-user-agent.svg)](https://opensource.org/licenses/ISC)
 
-Get an up-to-date user-agent string, sourced from the [most common user agents](https://techblog.willshouse.com/2012/01/03/most-common-user-agents/). A simple cache, invalidated every 2 hours, prevents hammering the data source. A data cap is implemented in the request. There is a fallback string in case the data is corrupt or host is unreachable.
+Get an up-to-date user-agent string, sourced from the [most common user agents](https://techblog.willshouse.com/2012/01/03/most-common-user-agents/). To avoid each use of this module hammering the source, the data is now self-hosted with [a gist](https://gist.githubusercontent.com/fijimunkii/952acac988f2d25bef7e0284bc63c406/raw/ua.json), updated in the build process. A simple local cache, invalidated every 2 hours, prevents extra requests. A data cap is implemented in the request. There is a fallback string in case the data is corrupt or host is unreachable.
 
 ```js
 const userAgent = require('real-user-agent');
