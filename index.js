@@ -13,9 +13,9 @@ const https = require('https');
 async function get() {
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: 'gist.githubusercontent.com',
+      hostname: 'cdn.jsdelivr.net',
       port: 443,
-      path: '/fijimunkii/952acac988f2d25bef7e0284bc63c406/raw/ua.json',
+      path: '/gh/fijimunkii/real-user-agent@master/ua.json',
       method: 'GET'
     };
     const req = https.request(options, async (res) => {
