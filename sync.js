@@ -25,7 +25,7 @@ async function get() {
 }
 
 async function set(data) {
-  data = JSON.stringify(data,null,2);
+  data = JSON.stringify(data,null,2) + '\n';
   const existingData = (await readFile(file)).toString();
   if (existingData === data) {
     console.log('No changes');
