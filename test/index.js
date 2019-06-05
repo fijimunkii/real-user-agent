@@ -1,4 +1,5 @@
 const userAgent = require('../index');
+const uaJSON = require('../ua');
 
 module.exports = t => {
   t.test('returns a user agent string', async (t) => {
@@ -33,6 +34,12 @@ module.exports = t => {
   t.test('all - returns an array', async (t) => {
     const all = await userAgent.all();
     t.type(all, Array);
+  });
+  t.test('ua.json - is an array of 10 user agent strings', async (t) => {
+    t.type(uaJSON, Array);
+    t.same(uaJSON.length, 10);
+    t.type(uaJSON[0], 'string');
+    t.same(uaJSON[0].substr(0, 13), 'Mozilla/5.0 (');
   });
 
 };
