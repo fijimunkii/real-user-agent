@@ -1,4 +1,4 @@
-module.exports = () => all().then(d => d.shift());
+module.exports = () => all().then(d => d[0]);
 module.exports.all = all;
 module.exports.cycle = cycle;
 
