@@ -28,7 +28,7 @@ jobs:
         # sleep 2
         sudo apt-get install -y chromium-chromedriver
         export DISPLAY=:99
-        chromedriver --url-base=/wd/hub &
+        chromedriver --url-base=/wd/hub --remote-debugging-port=9515 &
     - name: Sync
       run: |
         ./sync.sh
