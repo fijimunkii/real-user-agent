@@ -21,9 +21,9 @@ jobs:
       uses: actions/checkout@v2
     - name: Install deps
       run: |
-        apt-get install -y libxss1 libappindicator1 libindicator7
+        sudo apt-get install -y libxss1 libappindicator1 libindicator7
         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        apt install -y ./google-chrome*.deb
+        sudo apt install -y ./google-chrome*.deb
     - name: Sync
       run: |
         ./sync.sh
