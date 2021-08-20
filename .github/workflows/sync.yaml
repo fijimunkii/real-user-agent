@@ -10,7 +10,8 @@ on:
 jobs:
   sync:
     name: Sync user agent
-    runs-on: [ubuntu-latest]
+    #runs-on: [ubuntu-latest]
+    runs-on: ["ubuntu-18.04"]
     env:
       DOCKER_BUILDKIT: 1
     defaults:
@@ -21,14 +22,14 @@ jobs:
       uses: actions/checkout@v2
     - name: Install deps
       run: |
-        # sudo apt-get install libxss1 libappindicator1 libindicator7
-        # wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        # sudo apt install ./google-chrome*.deb
-        # google-chrome --headless --disable-gpu --disable-software-rasterizer &
-        # sleep 2
-        sudo apt-get install -y chromium-chromedriver
-        export DISPLAY=:99
-        chromedriver --url-base=/wd/hub --remote-debugging-port=9515 &
+        sudo apt-get install libxss1 libappindicator1 libindicator7
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt install ./google-chrome*.deb
+        google-chrome --headless --disable-gpu --disable-software-rasterizer &
+        sleep 2
+        #sudo apt-get install -y chromium-chromedriver
+        #export DISPLAY=:99
+        #chromedriver --url-base=/wd/hub --remote-debugging-port=9515 &
     - name: Sync
       run: |
         ./sync.sh

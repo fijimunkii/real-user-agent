@@ -5,7 +5,7 @@ pip3 install undetected-chromedriver
 page_source=$(python3 << EOF
 import undetected_chromedriver.v2 as uc
 import time
-driver = uc.Chrome(delay=10,port=9515)
+driver = uc.Chrome(delay=10)
 with driver:
     driver.get('https://techblog.willshouse.com/2012/01/03/most-common-user-agents/')
     time.sleep(10)
