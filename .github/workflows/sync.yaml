@@ -27,7 +27,9 @@ jobs:
         #wget --no-verbose https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb
         ##wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         #sudo apt install ./google-chrome*.deb
-        google-chrome --headless --disable-gpu --disable-software-rasterizer &
+        #google-chrome --headless --disable-gpu --disable-software-rasterizer &
+        google-chrome --product-version
+        google-chrome --headless &
         sleep 2
         #sudo apt-get install -y chromium-chromedriver
         #export DISPLAY=:99
