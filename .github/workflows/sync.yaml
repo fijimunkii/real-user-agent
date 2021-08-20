@@ -26,7 +26,7 @@ jobs:
         CHROME_VERSION="88.0.4324.182-1"
         wget --no-verbose https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb
         #wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo apt install --allow-downgrade ./google-chrome*.deb
+        sudo apt install --allow-downgrades ./google-chrome*.deb
         #google-chrome --headless --disable-gpu --disable-software-rasterizer &
         google-chrome --product-version
         google-chrome --headless &
