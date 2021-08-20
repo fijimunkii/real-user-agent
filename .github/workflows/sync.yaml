@@ -1,0 +1,39 @@
+name: 'Sync'
+on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+  push:
+    branches:
+      - master
+
+jobs:
+  sync:
+    name: Sync user agent
+    runs-on: [ubuntu-latest]
+    #runs-on: ["ubuntu-18.04"]
+    env:
+      DOCKER_BUILDKIT: 1
+    defaults:
+      run:
+        shell: bash
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install deps
+      run: |
+        sudo apt-get install libxss1 libappindicator1 libindicator7
+        CHROME_VERSION="88.0.4324.182-1"
+        wget --no-verbose https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}_amd64.deb
+        #wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt install --allow-downgrades ./google-chrome*.deb
+        #google-chrome --headless --disable-gpu --disable-software-rasterizer &
+        google-chrome --product-version
+        google-chrome --headless &
+        sleep 2
+        #sudo apt-get install -y chromium-chromedriver
+        #export DISPLAY=:99
+        #chromedriver --url-base=/wd/hub --remote-debugging-port=9515 &
+    - name: Sync
+      run: |
+        ./sync.sh
